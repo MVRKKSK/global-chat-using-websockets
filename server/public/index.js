@@ -8,6 +8,7 @@ const username = localStorage.getItem("username") || prompt("What should be your
 localStorage.setItem("username" , username)
 
 function manojhandler({ sender, message }) {
+
     const div = document.createElement('div')
 
     const senderdiv = document.createElement('div')
@@ -29,8 +30,10 @@ function messageHandler(e) {
     try {
 
         console.log(e.data)
-        const realmessage = JSON.stringify(e.data)
+        const realmessage = JSON.parse(e.data)
         const { sender, message } = realmessage
+
+        console.log(sender)
 
         manojhandler({sender  , message})
 
